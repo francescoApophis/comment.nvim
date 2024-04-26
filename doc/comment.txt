@@ -1,0 +1,69 @@
+*comment.txt*             A very modest and simple plugin for un/commenting code
+
+=================================================================================
+Table of Contents                                     *comment-table-of-contents*
+
+  - Overview                                                   |comment-overview|
+  - Usage                                                         |comment-usage|
+  - Configuration                                         |comment-configuration|
+
+
+
+
+OVERVIEW                                                       *comment-overview*
+
+Comment.nvim is a very modest and simple plugin for commenting and uncommenting 
+code I built mainly for myself. For this reason by default it supports comments 
+for:
+
+  - Python 
+  - C
+  - C++
+  - C#
+  - Golang
+  - Rust
+  - Java
+  - Javascript 
+  - HTML
+  - CSS
+  - Lua
+  - Sql
+
+Some of them are languages/tools I'm using or have used, others I plan to maybe 
+in the future. So sorry if one some languages are missing.
+
+
+
+USAGE                                                             *comment-usage*
+
+You use the SAME key or keys-combination for commenting/uncommenting in both 
+Normal mode (edit current line) and Visual/V-Line mode (edit range of selected 
+lines). That's it, no other functionality, nothing fancy really. 
+
+
+
+CONFIGURATION                                             *comment-configuration*
+
+*** I THINK that at the moment this ONLY works if installed with Lazy.nvim***
+because I know nothing about plugin managers work so, I don't know.
+
+To set your personal key:
+- In your 'comment.lua' file inside your Neovim's plugin folder (create it if you 
+don't have one) past this:
+
+>
+  return {
+    "francescoApophis/comment.nvim",
+    lazy = false,
+    config = function()
+      require("Comment").setup({
+        key = "" -- your new key or keys-combination, it can include <leader> if 
+        -- have that set up
+      })
+    end 
+
+  }
+< 
+
+
+
