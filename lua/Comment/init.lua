@@ -1,8 +1,6 @@
 
 local comment = require("Comment.lib.comment")
-
 local M = {}
-
 
 M.setup = function(opts)
   opts = opts or {key = "§"}
@@ -20,4 +18,5 @@ M.setup = function(opts)
     group = comments_group 
   })
 end 
+
 return M
