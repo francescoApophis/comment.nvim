@@ -1,27 +1,5 @@
 local M = {}
-
-M.comments = {
-  -- %s -> literal space char 
-  py  = "# ",
-  c   = "// ",
-  js  = "// ", 
-  lua = "-- ", 
-  vim = "\" ",
-  html = {"<!-- ", " -->"},
-  css = {"/* ", " */"},
-}
-
-M.comments_lua_regex_pattern = {
-  -- '-' is magic character; for lua and html's comment 
-  -- it needs to be escaped with '%' 
-  py  = "#%s",
-  c   = "//%s",
-  js  = "//%s", 
-  lua = "%-%-%s", 
-  vim = "\"%s",
-  html = {"<%!%-%-%s", "%s-%-%->"},
-  css = {"/%*%s", "%s%*/"},
-}
+local comment_tables = require("Comment.lib.comment_tables")
 
 -- used in comment_or_undo_range() to exit visual mode 
 local esc_key = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
@@ -118,8 +96,8 @@ M.set_keymaps = function(key, event_match, opts)
   opts = opts or {}
 
   local file_ext = M.get_file_ext(event_match)
-  local comment = M.comments[file_ext] 
-  local comment_pattern = M.comments_lua_regex_pattern[file_ext] 
+  local comment = comment_tables.comments[file_ext] 
+  local comment_pattern = comment_tables.comments_lua_regex_pattern[file_ext] 
   if comment then 
     vim.keymap.set("n", key, function() M.comment_or_undo_line(comment, comment_pattern) end, opts)
     vim.keymap.set("v", key, function() M.comment_or_undo_range(comment, comment_pattern) end, opts)
