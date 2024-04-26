@@ -3,7 +3,7 @@ local comment = require("Comment.lib.comment")
 local M = {}
 
 M.setup = function(opts)
-  opts = opts or {key = "§"}
+  opts = opts or {key = "gc"}
 
   if not opts["remap_opts"] then 
     opts["remap_opts"] = {silent = true, noremap = true}
