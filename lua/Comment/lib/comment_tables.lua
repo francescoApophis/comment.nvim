@@ -1,10 +1,12 @@
 local M = {}
 
 M.comments = {
+  asm = ";; ",
   c   = "// ",
   cpp = "// ",
   cs  = "// ",
   csproj = "// ",
+  fren = "// ",
   h   = "// ",
   rs  = "// ",
   rlib = "// ",
@@ -14,7 +16,9 @@ M.comments = {
   jar = "// ", 
   jmod = "// ",
   js  = "// ", 
+  lox = "// ",
   py  = "# ",
+  makefile = "# ",
   lua = "-- ", 
   sql = "-- ", 
   vim = "\" ",
@@ -26,6 +30,7 @@ M.comments_lua_regex_pattern = {
   -- '-' is magic character; for lua and html's comment 
   -- it needs to be escaped with '%' 
   -- %s -> literal space char 
+  asm = ";;%s",
   c   = "//%s",
   cpp = "//%s",
   cs = "//%s",
@@ -39,7 +44,10 @@ M.comments_lua_regex_pattern = {
   jar = "//%s",
   jmod = "//%s",
   js  = "//%s", 
+  lox  = "//%s", 
+  fren = "//%s", 
   py  = "#%s",
+  makefile = "#%s",
   lua = "%-%-%s", 
   sql = "%-%-%s", 
   vim = "\"%s",

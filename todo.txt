@@ -1,0 +1,3 @@
+fixme: comment stop working after executing a command and pressing 'enter'
+to close the related message window. Or at least it stops working sometimes
+and i have to open/close the tree-tab.
